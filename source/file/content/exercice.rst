@@ -11,15 +11,13 @@ Pour les exercices ci-dessous, on utilise l'interface de **file** rappelée ci-d
 Exercice 1
 ----------
 
+On considère une file F contenant dans l'ordre les nombres 1, 11, 111 et 1111; le nombre 1 est la tête de la file.
 
-
-   On considère une file F contenant dans l'ordre les nombres 1, 11, 111 et 1111; le nombre 1 est la tête de la file.
-
-   1. Représenter par un schéma la file F.
-   2. On enfile la valeur 11111. Quel est le contenu de la file F ?
-   3. On défile deux fois la file F. Quel est son contenu ?
-   4. Écrire la suite d'instructions qui permet de créer la file F et réaliser les actions des questions 2 et 3.
-   5. Écrire un algorithme qui défile la file F tant qu'elle n'est pas vide.
+1. Représenter par un schéma la file F.
+2. On enfile la valeur 11111. Quel est le contenu de la file F ?
+3. On défile deux fois la file F. Quel est son contenu ?
+4. Écrire la suite d'instructions qui permet de créer la file F et réaliser les actions des questions 2 et 3.
+5. Écrire un algorithme qui défile la file F tant qu'elle n'est pas vide.
 
 Exercice 2
 ----------
