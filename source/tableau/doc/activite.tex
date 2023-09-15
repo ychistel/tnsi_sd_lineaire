@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{style2017}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks =false,
+    linkcolor=blue,
+   linkbordercolor = 1 0 0
+}
+\newcounter{numexo}
+\setcellgapes{1pt}
+
+\newcommand{\nd}{n\oe{}ud~}
+\newcommand{\nds}{n\oe{}uds~}
+\begin{document}
+
+\begin{NSI}
+{Activité}{Structure de données linéaires}
+\end{NSI}
+
+\section{Type de données}
+
+\begin{enumerate}
+\item Citer différents types de données de base rencontrés dans le langage Python.
+\item En Python, quels types de données permettent d'avoir plusieurs valeurs dans une même variable ?
+\end{enumerate}
+
+\section{Les données par indices}
+\begin{enumerate}
+\item Soit \textsf{a} la variable telle que \textsf{a=(1,2,3)}.
+\begin{enumerate}
+\item Quel le type de données de la variable \textsf{a} ?
+\item Est-il possible de remplacer le nombre 3 par la valeur 4 ? Si oui, comment?
+\end{enumerate}
+
+\item Soit \textsf{b} la variable telle que \textsf{b=list(a)}.
+\begin{enumerate}
+\item Quel est le type de la variable \textsf{b}?
+\item Est-il possible de remplacer le nombre 3 par la valeur 4 ? Si oui, comment?
+\item Quelles sont les opérations réalisables sur la variable \textsf{b}?
+\end{enumerate}
+\end{enumerate}
+
+\section{Les données par association}
+Soit \textsf{d} la variable définie par \textsf{d=dict(x=3,y=4)}.
+\begin{enumerate}
+\item Quel est le type de la variable \textsf{d} ? Donner une autre écriture pour créer cette variable.
+\item La variable \textsf{d} est-elle modifiable ? Quelles sont les opérations possibles à réaliser ?
+\item Comment ajouter la clé \textsf{z} associée à la valeur 5 ?
+\end{enumerate}
+\end{document}
+

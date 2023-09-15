@@ -1,0 +1,125 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{style2017}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks =false,
+    linkcolor=blue,
+   linkbordercolor = 1 0 0
+}
+\newcounter{numexo}
+\setcellgapes{1pt}
+
+\begin{document}
+
+
+
+\begin{NSI}
+{TP}{Jouer à la bataille}
+\end{NSI}
+
+
+\section{Présentation du jeu}
+
+Le jeu de cartes de la bataille oppose 2 joueurs. Chaque joueur possède un tas de cartes qu'il ne voit pas. Il n'a pas le droit de les mélanger et ne peut accéder qu'à la carte située au-dessus de son tas. À chaque tour, les joueurs retournent la carte au-dessus du tas et le joueur qui a la carte la plus forte remporte la manche. Les deux cartes ramassées sont placées en-dessous du tas de cartes du joueur vainqueur. \medskip
+
+En cas d'égalité, il y a bataille. Les 2 joueurs doivent retirer chacun 1 carte de leur tas et la poser sur la carte au tapis et retirer à nouveau une carte pour remporter la manche. Les batailles peuvent s'enchainer !
+
+Le premier joueur qui n'a plus de cartes a perdu la bataille.
+
+\section{Le paquet de cartes}
+
+Une carte est représenté par un tuple (valeur, couleur).
+
+\begin{itemize}
+\item Les valeurs des cartes sont le 1 pour l'as, le 2 pour le deux, etc ; le valet est représenté par le nombre 11, la dame par le 12 et le roi par le 13.
+\item Les couleurs sont les chaines de caractères "coeur", "carreau", "trèfle" et "pique".
+\end{itemize}
+
+Un paquet de cartes est une liste contenant 32 ou 52 cartes.
+
+
+\begin{enumerate}
+
+\item Écrire la fonction \textbf{creer\_paquet(n=32)} qui prend en paramètre le nombre \textbf{n} de cartes et renvoie la liste contenant toutes les cartes d'un jeu. Le paquet de cartes sera affecté à la variable \textsf{paquet}.
+
+\item La méthode \textsf{shuffle}(liste) du module \textsf{random} permet de mélanger aléatoirement les valeurs de la liste. Attention, c'est bien la liste qui est mélangée, pas une copie !
+
+Créer une fonction melanger(paquet) pour mélanger les cartes.
+
+\item Les tas de cartes de chaque joueur sont de type \textsf{file}. Créer une fonction \textbf{distribuer(paquet)} qui va enfiler les cartes du paquet dans 2 files tasA et tasB alternativement. Les deux tas seront renvoyés par la fonction.
+\end{enumerate}
+
+\section{Le jeu de la bataille}
+Le jeu se déroule en trois phases :
+\begin{enumerate}
+\item On tire (défile) une carte \textbf{a} du tasA et une carte \textbf{b} du tasB;
+\item On compare les 2 cartes:
+\begin{itemize}
+\item Si la carte \textbf{a} est plus forte que la carte \textbf{b}, alors on met les 2 cartes sous le tasA;
+\item sinon, si la carte \textbf{b} est plus forte que la carte \textbf{a}, alors on met les 2 cartes sous le tasB;
+\item sinon (les cartes sont aussi fortes) il y a bataille.
+\end{itemize}
+\item En cas de bataille, on enfile les cartes du tapis et une autre carte de chaque paquet dans une fille temporaire (tapis). Ensuite on recommence avec 2 nouvelles cartes et la plus forte remporte le tout.
+\end{enumerate}
+
+\newpage
+On donne l'algorithme du jeu :
+
+\begin{center}
+\begin{tabular}{|p{14cm}|}
+\hline
+On crée une file vide \textbf{tapis} (cartes en cas de bataille)\\
+Tant que les tas A et B ne sont pas vides:\\
+\hspace{1cm}on défile le tasA (a) \\
+\hspace{1cm}on défile le tasB (b) \\
+\hspace{1cm}si $a>b$ :\\
+\hspace{2cm}on enfile a et b dans le tasA\\
+\hspace{2cm}on récupère tout le tapis dans le tasA (suite à bataille)\\
+\hspace{1cm}sinon si $a<b$:\\
+\hspace{2cm}on enfile a et b dans le tasB\\
+\hspace{2cm}on récupère le tapis dans le tasB (suite à bataille)\\
+\hspace{1cm}sinon: (bataille)\\
+\hspace{2cm}on enfile a et b dans tapis\\
+\hspace{2cm}on défile tasA et on enfile tapis\\
+\hspace{2cm}on défile tasB et on enfile tapis\\
+Fin de la boucle tant que (un des tas est vide)\\
+si paquet A vide:\\
+\hspace{1cm}afficher "A a perdu, B gagne"\\
+sinon:\\
+\hspace{1cm}afficher "B a perdu, A gagne"\\
+\hline
+\end{tabular}
+\end{center}
+
+Écrire une fonction \textbf{jouer()} programmant l'algorithme ci-dessus.
+
+\section{Programme principal}
+Voici l'algorithme du programme principal:
+\begin{center}
+\begin{tabular}{|p{14cm}|}
+\hline
+Créer une file vide \textbf{tasA}\\
+Créer une file vide \textbf{tasB}\\
+Créer un paquet de cartes \textbf{paquet}\\
+Mélanger le paquet\\
+Distribuer les cartes aux joueurs A et B\\
+Lancer le jeu avec la fonction jouer().\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item Écrire en python le programme principal et l'exécuter.
+\item Le programme n'affiche rien. Ajouter des affichages pour:
+\begin{itemize}
+\item voir les cartes posées par les joueurs A et B;
+\item voir qui remporte la manche;
+\item voir lorsqu'il y a bataille et les cartes dans le tas;
+\item voir le nombre de cartes de chaque joueur après chaque manche?
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}
