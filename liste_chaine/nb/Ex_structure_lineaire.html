@@ -1,0 +1,961 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Structure de données linéaire &#8212; NSI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/translations.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'liste_chaine/nb/Ex_structure_lineaire';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">NSI</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure de données linéaires</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pile/index.html">Les piles</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/ponctuation.html">Activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/pile.html">La pile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/exercice.html">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../file/index.html">Les files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/josephe.html">Activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/file.html">La file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/exercice.html">Exercices sur les files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Les listes chainées</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/liste_chaine.html">Les listes (chainées)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/exercice.html">Exercices sur les listes</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/liste_chaine/nb/Ex_structure_lineaire.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Structure de données linéaire</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Structure de données linéaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Solutions-des-exercices">Solutions des exercices</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-1">Exercice 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-2">Exercice 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-3">Exercice 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-4">Exercice 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-5">Exercice 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="Structure-de-données-linéaire">
+<h1>Structure de données linéaire<a class="headerlink" href="#Structure-de-données-linéaire" title="Lien permanent vers cette rubrique">#</a></h1>
+</section>
+<section id="Exercice">
+<h1>Exercice<a class="headerlink" href="#Exercice" title="Lien permanent vers cette rubrique">#</a></h1>
+<p><em>Cet exercice traite des listes chainées qui seront construites avec le module liste-chaine.py</em></p>
+<p>On définit l’interface d’une liste chainée.</p>
+<ul class="simple">
+<li><p>la méthode <strong>tete()</strong> renvoie la tête de la liste, c’est à dire la valeur de la première cellule de la chaine;</p></li>
+<li><p>la méthode <strong>queue()</strong> renvoie la queue de liste, c’est à dire la liste sur laquelle pointe la première cellule;</p></li>
+<li><p>la méthode <strong>est_vide()</strong> renvoie un booléen indiquant si la liste est vide ou non.</p></li>
+<li><p>la méthode <strong>insere_en_tete()</strong> qui prend en argument une valeur l’ajoute en début de liste ;</p></li>
+</ul>
+<p>On considère la liste chainée suivante:</p>
+<p><img alt="liste chainée L1" src="../../_images/liste-chainee3.png" /></p>
+<ol class="arabic simple">
+<li><p>Que renvoie les instructions suivantes:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">L1.tete()</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L1.queue()</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L1.queue().queue()</span></code> :</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L1.queue().queue().queue().est_vide()</span></code></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Donner une suite d’instructions qui permet de construire la liste chainée L1.</p></li>
+<li><p>On souhaite créer les listes L2, L3 et L4 représentées ci-dessous. Quelles sont les instructions Python qui permettent de créer ces listes ?</p></li>
+</ol>
+<p><img alt="liste chainée L1, L2, L3 et L4" src="../../_images/liste-chainee4.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>Écrire la fonction <strong>nombre_elements</strong> qui prend en argument une liste chainée et renvoie le nombre de ces éléments.</p></li>
+<li><p>La fonction <strong>insere_en_position</strong> prend en argument une liste chainée, une position et une valeur à insérer dans la liste chainée. Cette fonction renvoie la liste chainée avec le nouvel élément situé à la bonne position.</p>
+<ul class="simple">
+<li><p>Écrire cette fonction en Python.</p></li>
+<li><p>Insérer le nombre 0 en position 2.</p></li>
+<li><p>Insérer le nombre -1 en fin de liste.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id1">
+<h1>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h1>
+<p><em>Exercice sur les piles qui utilisera le script pile.py</em></p>
+<p>L’interface de la pile utilise les fonctions et méthodes suivantes :</p>
+<ul class="simple">
+<li><p>Créer une pile vide : <code class="docutils literal notranslate"><span class="pre">P=creer_pile()</span></code></p></li>
+<li><p>Empiler une valeur au sommet de la pile : <code class="docutils literal notranslate"><span class="pre">P.empiler(x)</span></code>;</p></li>
+<li><p>Dépiler le sommet de la pile en renvoyant sa valeur <code class="docutils literal notranslate"><span class="pre">y=P.depiler()</span></code>;</p></li>
+<li><p>Tester si la pile est vide : <code class="docutils literal notranslate"><span class="pre">P.est_vide()</span></code>.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Créer une pile vide <strong>P</strong>.</p></li>
+<li><p>Empiler dans la pile <strong>P</strong> un nombre aléatoire de valeurs (entre 5 et 10) choisies aléatoirement entre 1 et 20 (1 et 20 compris).</p></li>
+<li><p>Écrire la fonction <strong>somme</strong> qui prend en argument une pile et calcule la somme des nombres contenus dans la pile <strong>P</strong>. Celle-ci sera vide à la fin du calcul.</p></li>
+<li><p>Écrire la fonction <strong>somme2</strong> identique à <strong>somme</strong> mais la pile <strong>P</strong> devra retrouver son état initial. Pour cette seconde fonction, on utilisera une seconde pile interne à la fonction.</p></li>
+</ol>
+</section>
+<section id="id2">
+<h1>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers cette rubrique">#</a></h1>
+<p><em>Cet exercice a pour objectif d’interfacer des piles avec les listes de Python</em></p>
+<p>On souhaite créer l’interface d’une pile en utilisant les listes python. L’interface est la suivante:</p>
+<ul class="simple">
+<li><p>Créer une pile vide : <code class="docutils literal notranslate"><span class="pre">P=creer_pile()</span></code></p></li>
+<li><p>Empiler une valeur au sommet de la pile : <code class="docutils literal notranslate"><span class="pre">empiler(P,x)</span></code>;</p></li>
+<li><p>Dépiler le sommet de la pile en renvoyant sa valeur <code class="docutils literal notranslate"><span class="pre">y=depiler(P)</span></code>;</p></li>
+<li><p>Tester si la pile est vide : <code class="docutils literal notranslate"><span class="pre">est_vide(P)</span></code>.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Citer les méthodes ou fonctions sur les <strong>listes</strong> qui permettent :</p></li>
+</ol>
+<ul class="simple">
+<li><p>de créer une pile;</p></li>
+<li><p>d’empiler une valeur;</p></li>
+<li><p>de dépiler le sommet de la pile;</p></li>
+<li><p>de tester si la pile est vide.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Créer ces 4 fonctions <strong>creer_pile</strong>, <strong>empiler</strong>, <strong>depiler</strong> et <strong>est_vide</strong> pour réaliser l’interface de la pile. Les paramètres de ces fonctions vérifient l’interface donnée ci-dessus.</p></li>
+<li><p>Pour vérifier le bon fonctionnement de votre interface, les instructions de contrôle suivantes ne doivent pas renvoyer d’erreur:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">=</span><span class="n">creer_pile</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">empiler</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">empiler</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">empiler</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">depiler</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
+<span class="k">assert</span> <span class="n">depiler</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">depiler</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h1>Exercice<a class="headerlink" href="#id3" title="Lien permanent vers cette rubrique">#</a></h1>
+<p><em>Cet exercice sur les files utilise le script file.py qui implémente l’interface des files.</em></p>
+<p>On rappelle l’interface de la file:</p>
+<ul class="simple">
+<li><p>Créer_file() qui crée une file vide : <code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">creer_file()</span></code></p></li>
+<li><p>Enfiler(valeur) qui ajoute une valeur à la file : <code class="docutils literal notranslate"><span class="pre">F.enfiler(1)</span></code></p></li>
+<li><p>Défiler() qui supprime la tête de la file en renvoyant sa valeur : <code class="docutils literal notranslate"><span class="pre">F.defiler()</span></code></p></li>
+<li><p>Est_vide() qui teste si la file est vide : <code class="docutils literal notranslate"><span class="pre">F.est_vide()</span></code> qui renvoie vrai ici.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Créer une file vide <strong>F</strong>.</p></li>
+<li><p>Enfiler un nombre aléatoire de valeurs (entre 5 et 10) dans la file <strong>F</strong>. Les valeurs sont des nombres aléatoires compris entre 1 et 100.</p></li>
+<li><p>Créer une seconde file <strong>G</strong> vide.</p></li>
+<li><p>Créer un script qui enfile les nombres impairs de la file <strong>F</strong> dans la file <strong>G</strong>. La file <strong>F</strong> contiendra les nombres pairs à l’issue du script.</p></li>
+</ol>
+</section>
+<section id="id4">
+<h1>Exercice<a class="headerlink" href="#id4" title="Lien permanent vers cette rubrique">#</a></h1>
+<p><em>Exercice sur les files qui utilise le script file.py et traite la conjecture de syracuse</em></p>
+<p>La <a class="reference external" href="https://fr.wikipedia.org/wiki/Conjecture_de_Syracuse">Conjecture de syracuse</a> appelée suite de Syracuse calcule une suite de nombres selon leur parité (pair ou impair). On utilisera une file pour stocker les valeurs de nos différentes suites de Syracuse. L’interface de notre file est la même que l’exercice précédent.</p>
+<p>Après avoir lu l’article sur wikipédia, nous allons construire différentes fonctions en Python pour calculer les nombres de cette suite.</p>
+<ol class="arabic simple">
+<li><p>Importer la classe File et la fonction creer_file du module file.</p></li>
+<li><p>Créer une file vide S qui stockera les nombres de notre suite de Syracuse.</p></li>
+<li><p>Écrire la fonction <strong>syracuse</strong> de paramètre <strong>n</strong>, nombre entier, qui calcule les nombres de la suite de syracuse et enregistre les valeurs dans la file S.</p></li>
+<li><p>On associe les nombres de syracuse à la trajectoire d’une feuille morte et on parle du vol de la suite. Trois valeurs symbolisent ce vol : le temps de vol, le temps de vol en altitude et l’altitude maximale.
+Écrire trois fonctions qui permettent d’obtenir ces trois valeurs. Attention, la file doit retrouver son état initial après les appels des fonctions.</p></li>
+<li><p>Créer un script qui permet de calculer les nombres de syracuse pour une valeur <strong>N</strong> donnée et affiche les trois valeurs du vol.</p></li>
+</ol>
+<blockquote>
+<div><p>Par exemple, pour N=129:</p>
+<ul class="simple">
+<li><p>Le temps de vol pour N=129 est 121.</p></li>
+<li><p>Le temps de vol en altitude pour N=129 est 2.</p></li>
+<li><p>L’altitude maximale pour N=129 est 9232.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>Représenter graphiquement les nombres de syracuse en important le module <strong>matplotlib</strong> et en utilisant la fonction <strong>graphik</strong> ci-dessous:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import du module avec alias plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># fonction qui permet de représenter graphiquement ces nombres:</span>
+<span class="k">def</span> <span class="nf">graphik</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">Y</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+        <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plt</span>
+
+<span class="c1">#Appel pour afficher le graphique, on effectuera l&#39;appel:</span>
+    <span class="n">g</span><span class="o">=</span><span class="n">graphik</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># &lt;= inutile sur un notebook jupyter !</span>
+</pre></div>
+</div>
+</section>
+<section id="Solutions-des-exercices">
+<h1>Solutions des exercices<a class="headerlink" href="#Solutions-des-exercices" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="Exercice-1">
+<h2>Exercice 1<a class="headerlink" href="#Exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">liste_chaine</span> <span class="kn">import</span> <span class="n">Liste</span><span class="p">,</span> <span class="n">Maillon</span><span class="p">,</span> <span class="n">creer_liste_chaine</span>
+
+<span class="n">L1</span><span class="o">=</span><span class="n">creer_liste_chaine</span><span class="p">()</span>
+<span class="n">L1</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">L1</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">L1</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">L1</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># créer les listes L2, L3 et L4:</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+
+<span class="n">L2</span><span class="o">=</span><span class="n">L1</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+
+<span class="n">L3</span><span class="o">=</span><span class="n">L2</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L3</span><span class="p">)</span>
+
+<span class="n">L4</span><span class="o">=</span><span class="n">L2</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+<span class="n">L4</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L4</span><span class="p">,</span><span class="n">L3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3]-&gt;[8]-&gt;[5]-&gt;[7]-&gt;[]
+[8]-&gt;[5]-&gt;[7]-&gt;[]
+[5]-&gt;[7]-&gt;[]
+[1]-&gt;[5]-&gt;[7]-&gt;[] [5]-&gt;[7]-&gt;[]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nombre_element</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="n">nb</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">liste</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">liste</span><span class="o">=</span><span class="n">liste</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+        <span class="n">nb</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">nb</span>
+
+<span class="c1"># version récursive de la fonction nombre_element</span>
+<span class="k">def</span> <span class="nf">nb_element_rec</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">liste</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nb_element_rec</span><span class="p">(</span><span class="n">liste</span><span class="o">.</span><span class="n">queue</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">insere_en_position</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">element</span><span class="p">):</span>
+    <span class="n">debut</span><span class="o">=</span><span class="n">creer_liste_chaine</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># on recupère les valeurs de la liste dans une liste debut</span>
+        <span class="n">debut</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="n">liste</span><span class="o">.</span><span class="n">tete</span><span class="p">())</span>
+        <span class="c1"># on avance dans la liste tant que pos &gt; 0</span>
+        <span class="n">liste</span><span class="o">=</span><span class="n">liste</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="c1"># on insere l&#39;élément dans la liste</span>
+    <span class="n">liste</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="c1"># on remet les éléments de tête dans la liste</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">debut</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">liste</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="n">debut</span><span class="o">.</span><span class="n">tete</span><span class="p">())</span>
+        <span class="n">debut</span><span class="o">=</span><span class="n">debut</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">liste</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre_element</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span>
+<span class="c1">#print(nb_element_rec(L1))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="n">L1</span><span class="o">=</span><span class="n">insere_en_position</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">L1</span><span class="o">=</span><span class="n">insere_en_position</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#print(nombre_element(L1))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nb_element_rec</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4
+[3]-&gt;[8]-&gt;[5]-&gt;[7]-&gt;[]
+6
+[3]-&gt;[8]-&gt;[6]-&gt;[5]-&gt;[1]-&gt;[7]-&gt;[]
+</pre></div></div>
+</div>
+</section>
+<section id="Exercice-2">
+<h2>Exercice 2<a class="headerlink" href="#Exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pile</span> <span class="kn">import</span> <span class="n">Pile</span><span class="p">,</span> <span class="n">creer_pile</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="c1"># 1. Créer la pile P vide</span>
+<span class="n">P</span><span class="o">=</span><span class="n">creer_pile</span><span class="p">()</span>
+
+<span class="c1"># Empiler 5 valeurs entre 1 et 6</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="n">pile</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">pile</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">S</span> <span class="o">+=</span> <span class="n">pile</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">S</span>
+
+<span class="k">def</span> <span class="nf">somme_rec</span><span class="p">(</span><span class="n">pile</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pile</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pile</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span><span class="o">+</span><span class="n">somme_rec</span><span class="p">(</span><span class="n">pile</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">somme2</span><span class="p">(</span><span class="n">pile</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remarque : on peut se passer de l&#39;argument pile et directement traiter la pile P dans la fonction.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">pile</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">pile</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span>
+        <span class="n">S</span> <span class="o">+=</span> <span class="n">x</span>
+        <span class="n">Q</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">Q</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">pile</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">depiler</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">S</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Somme des éléments de la pile:&quot;</span><span class="p">,</span><span class="n">somme2</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Somme des éléments de la pile:&quot;</span><span class="p">,</span><span class="n">somme_rec</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+... ] 2 ] 5 ] 3 ] 16 ] 9 ] 20 ]
+Somme des éléments de la pile: 55
+Somme des éléments de la pile: 55
+</pre></div></div>
+</div>
+<section id="Exercice-3">
+<h3>Exercice 3<a class="headerlink" href="#Exercice-3" title="Lien permanent vers cette rubrique">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fonctions et méthodes des listes</span>
+
+<span class="c1"># pour créer une pile vide : list() ou []</span>
+<span class="c1"># pour empiler une valeur : append(valeur)</span>
+<span class="c1"># pour dépiler : pop(-1)</span>
+<span class="c1"># pour tester la pile vide : pile == []</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_pile</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">empiler</span><span class="p">(</span><span class="n">pile</span><span class="p">,</span><span class="n">valeur</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">valeur</span><span class="p">:</span>
+        <span class="n">pile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">valeur</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pile</span>
+
+<span class="k">def</span> <span class="nf">depiler</span><span class="p">(</span><span class="n">pile</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pile</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="n">pile</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pile</span> <span class="o">==</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">=</span><span class="n">creer_pile</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">empiler</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">empiler</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">empiler</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">depiler</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
+<span class="k">assert</span> <span class="n">depiler</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">depiler</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Exercice-4">
+<h3>Exercice 4<a class="headerlink" href="#Exercice-4" title="Lien permanent vers cette rubrique">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">file</span> <span class="kn">import</span> <span class="n">File</span><span class="p">,</span> <span class="n">creer_file</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)):</span>
+    <span class="n">F</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="ow">not</span> <span class="n">F</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">H</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">H</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+    <span class="n">F</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">defiler</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+6 &lt; 28 &lt; 83 &lt; 38 &lt; 86 &lt; 20 &lt; 83 &lt; ...
+6 &lt; 28 &lt; 38 &lt; 86 &lt; 20 &lt; ...
+83 &lt; 83 &lt; ...
+</pre></div></div>
+</div>
+</section>
+<section id="Exercice-5">
+<h3>Exercice 5<a class="headerlink" href="#Exercice-5" title="Lien permanent vers cette rubrique">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">file</span> <span class="kn">import</span> <span class="n">File</span><span class="p">,</span> <span class="n">creer_file</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">S</span><span class="o">=</span><span class="n">creer_file</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">syracuse</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">S</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">S</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">S</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">temps_de_vol</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">tdv</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">tdv</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tdv</span>
+
+
+<span class="k">def</span> <span class="nf">temps_de_vol_altitude</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">tdva</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">tdva</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tdva</span>
+
+<span class="k">def</span> <span class="nf">altitude_maximale</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">h</span>
+
+<span class="k">def</span> <span class="nf">graphik</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">Y</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+        <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">X</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plt</span>
+
+<span class="n">N</span><span class="o">=</span><span class="mi">27</span>
+<span class="n">syracuse</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le temps de vol pour N=</span><span class="si">%s</span><span class="s2"> est </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">temps_de_vol</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le temps de vol en altitude pour N=</span><span class="si">%s</span><span class="s2"> est </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">temps_de_vol_altitude</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;altitude maximale pour N=</span><span class="si">%s</span><span class="s2"> est </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">altitude_maximale</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
+<span class="n">g</span><span class="o">=</span><span class="n">graphik</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="c1">#g.show()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+27 &lt; 82 &lt; 41 &lt; 124 &lt; 62 &lt; 31 &lt; 94 &lt; 47 &lt; 142 &lt; 71 &lt; 214 &lt; 107 &lt; 322 &lt; 161 &lt; 484 &lt; 242 &lt; 121 &lt; 364 &lt; 182 &lt; 91 &lt; 274 &lt; 137 &lt; 412 &lt; 206 &lt; 103 &lt; 310 &lt; 155 &lt; 466 &lt; 233 &lt; 700 &lt; 350 &lt; 175 &lt; 526 &lt; 263 &lt; 790 &lt; 395 &lt; 1186 &lt; 593 &lt; 1780 &lt; 890 &lt; 445 &lt; 1336 &lt; 668 &lt; 334 &lt; 167 &lt; 502 &lt; 251 &lt; 754 &lt; 377 &lt; 1132 &lt; 566 &lt; 283 &lt; 850 &lt; 425 &lt; 1276 &lt; 638 &lt; 319 &lt; 958 &lt; 479 &lt; 1438 &lt; 719 &lt; 2158 &lt; 1079 &lt; 3238 &lt; 1619 &lt; 4858 &lt; 2429 &lt; 7288 &lt; 3644 &lt; 1822 &lt; 911 &lt; 2734 &lt; 1367 &lt; 4102 &lt; 2051 &lt; 6154 &lt; 3077 &lt; 9232 &lt; 4616 &lt; 2308 &lt; 1154 &lt; 577 &lt; 1732 &lt; 866 &lt; 433 &lt; 1300 &lt; 650 &lt; 325 &lt; 976 &lt; 488 &lt; 244 &lt; 122 &lt; 61 &lt; 184 &lt; 92 &lt; 46 &lt; 23 &lt; 70 &lt; 35 &lt; 106 &lt; 53 &lt; 160 &lt; 80 &lt; 40 &lt; 20 &lt; 10 &lt; 5 &lt; 16 &lt; 8 &lt; 4 &lt; 2 &lt; 1 &lt; ...
+Le temps de vol pour N=27 est 111.
+Le temps de vol en altitude pour N=27 est 95.
+L&#39;altitude maximale pour N=27 est 9232.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/liste_chaine_nb_Ex_structure_lineaire_19_1.png" src="../../_images/liste_chaine_nb_Ex_structure_lineaire_19_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Structure de données linéaire</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercice</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Solutions-des-exercices">Solutions des exercices</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-1">Exercice 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-2">Exercice 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-3">Exercice 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-4">Exercice 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice-5">Exercice 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par yannick chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022, yannick chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="fr" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Structure de données &#8212; NSI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/translations.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'liste_chaine/nb/structure_donnée_linéaire_corrige';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">NSI</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure de données linéaires</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../pile/index.html">Les piles</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/ponctuation.html">Activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/pile.html">La pile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/exercice.html">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../file/index.html">Les files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/josephe.html">Activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/file.html">La file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/exercice.html">Exercices sur les files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Les listes chainées</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/liste_chaine.html">Les listes (chainées)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/exercice.html">Exercices sur les listes</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/liste_chaine/nb/structure_donnée_linéaire_corrige.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Structure de données</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Type-de-données">Type de données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#La-pile">La pile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interface-d'une-pile">Interface d’une pile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Implémentation-d'une-pile">Implémentation d’une pile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#La-file">La file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interface">Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Implémentation">Implémentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Liste-chainée">Liste chainée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Implémentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Application-:-tri-d'une-liste-avec-une-pile">Application : tri d’une liste avec une pile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Le-tri-par-insertion">Le tri par insertion</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="Structure-de-données">
+<h1>Structure de données<a class="headerlink" href="#Structure-de-données" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="Type-de-données">
+<h2>Type de données<a class="headerlink" href="#Type-de-données" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Les données ont un type défini par le langage de programmation. On a les types simples comme: - les nombres entiers sont de type <strong>int</strong> pour <strong>integer</strong> (entier); - les nombres flottants représentant les nombres réels sont de type <strong>float</strong>; - les chaines de caractères, notées entre les simples ou doubles quote (guillemets) sont de type <strong>string</strong>; - les booléens qui prennent 2 valeurs : <strong>True</strong>, <strong>False</strong> ou alors <strong>0</strong>, <strong>1</strong>.</p>
+<p>Certains types de données sont plus complexes, rassemble plusieurs données dans une même structure. Par exemple: - les tableaux ou listes (en python) de type <strong>list</strong>; - les dictionnaires (ou tableaux associatifs) qui sont de type <strong>dict</strong></p>
+<p>Des <strong>opérations</strong> sur les types de données sont définies. - Pour les types <strong>int</strong> et <strong>float</strong>, on a les 4 opérations mathématiques. - Pour les chaines de caratères, on a la concaténation, les opérations d’encodage, la mise en forme, etc. - Pour les booléens, on a les opérations logiques <strong>and</strong>, <strong>or</strong> et <strong>not</strong>.</p>
+<p>Pour les types structurés comme les les listes et les dictionnaires, on dispose de méthodes (fonctions) qui permettent d’agir sur les données qu’elles contiennent.</p>
+<p>En python, les listes et les dictionnaires disposent des méthodes de suppression, d’ajout, d’accès à une valeur souhaitée, etc.</p>
+<p>L’ensemble de ces méthodes constitue <strong>l’interface</strong> de la structure de données.</p>
+<p>Ces types et structures de données sont complétés par des <strong>structures de données construits</strong> pour répondre à des problématiques particulières. Nous allons en étudier plusieurs comme la pile, la file et les listes chainées.</p>
+</section>
+<section id="La-pile">
+<h2>La pile<a class="headerlink" href="#La-pile" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Une <strong>pile</strong> est une <strong>structure de données</strong> pour laquelle on accède uniquement au dernier élément ajouté nommé <strong>sommet de la pile</strong>. Cette structure de donnée est dite <strong>LIFO</strong> pour <strong>Last In First Out</strong> (premier arrivé, dernier sorti).</p>
+<p>On représente souvent une pile de façon verticale comme une pile d’assiettes.</p>
+<p><img alt="schéma d'une pile" src="../../_images/piles1.png" /></p>
+<section id="Interface-d'une-pile">
+<h3>Interface d’une pile<a class="headerlink" href="#Interface-d'une-pile" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>L’interface d’une pile se compose principalement des méthodes suivantes : - Créer une pile vide, sans contenu; - Empiler une pile c’est à dire ajouter un nouvel élément au sommet de la pile; - Dépiler une pile c’est à dire renvoyer le sommet de la pile en le supprimant de la pile;</p>
+<p>On y ajoute parfois les méthodes suivantes: - Tester si une pile est vide; - Accéder au sommet de la pile (sans dépiler), c’est à dire renvoyer la valeur du sommet de la pile sans le supprimer; - Connaitre le nombre d’éléments d’une pile appelée <strong>hauteur</strong> de la pile; - Afficher le contenu d’une pile avec <strong>print</strong> ou une méthode dédiée.</p>
+</section>
+<section id="Implémentation-d'une-pile">
+<h3>Implémentation d’une pile<a class="headerlink" href="#Implémentation-d'une-pile" title="Lien permanent vers cette rubrique">#</a></h3>
+<p><strong>L’implémentation</strong> d’une pile peut se réaliser de différentes manières en python. La pile n’existe pas nativement dans le langage. Par contre, quel que soit l’implémentation choisie pour une pile, l’interface reste la seule définition de la pile.</p>
+<p>Les listes pythons disposent de fonctions et de méthodes pour réaliser l’interface d’une pile. On peut programmer un script en python regroupant les différentes méthodes et fonctions qui réalisent l’interface d’une pile.</p>
+</section>
+<section id="Exercice">
+<h3>Exercice<a class="headerlink" href="#Exercice" title="Lien permanent vers cette rubrique">#</a></h3>
+<p><em>Cet exercice doit être cherché sur feuille avant de le programmer en python</em></p>
+<p>On considère une pile <strong>P</strong> contenant dans cet ordre les nombres entiers 17, 9, 12 et 8; Le nombre 17 est le sommet de la pile.</p>
+<p>On définit l’interface de la pile avec les fonctions suivantes : - Créer_pile() qui crée une pile vide; - Empiler(valeur) qui ajoute une valeur au sommet de la pile; - Dépiler() qui supprime le sommet de la pile en renvoyant sa valeur; - Pile_vide() qui teste si la pile est vide.</p>
+<p>On pourra afficher le contenu de la pile avec <strong>print</strong>.</p>
+<ol class="arabic simple">
+<li><p>Représenter cette pile <strong>P</strong> par un schéma.</p></li>
+<li><p>On empile la valeur 31. Quel est le contenu de la pile <strong>P</strong> ?</p></li>
+<li><p>On dépile la pile <strong>P</strong>. Quel est son contenu ?</p></li>
+<li><p>Écrire, en python la suite d’instructions qui permet de créer la pile P.</p></li>
+<li><p>Écrire un algorithme qui dépile la pile <strong>P</strong> tant qu’elle n’est pas vide.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Pour importer le module Pile, il faut récupérer le fichier pile.py et l&#39;installer dans le même répertoire</span>
+<span class="sd">que votre fichier python ou notebook jupyter.</span>
+
+<span class="sd">Ensuite, l&#39;import se fait avec la commande:</span>
+<span class="sd">from pile import *</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="La-file">
+<h2>La file<a class="headerlink" href="#La-file" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Une <strong>file</strong> est une structure de données pour laquelle on accède uniquement au premier élément ajouté nommé <strong>tête de file</strong>. Une file est une structure dite <strong>FIFO</strong> signifiant <strong>FIRST IN, FIRST OUT</strong> se traduisant par premier arrivé, premier sorti.</p>
+<p>On représente souvent une file de façon horizontale comme une file d’attente.</p>
+<p><img alt="schéma d'une file" src="../../_images/files1.png" /></p>
+<section id="Interface">
+<h3>Interface<a class="headerlink" href="#Interface" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>L’interface d’une file se compose principalement des méthodes suivantes: - Créer une file vide, c’est à dire sans contenu; - Enfiler une file c’est à dire ajouter un nouvel élément dans la file; - Défiler une file, c’est à dire retirer un élément de la file en récupérant sa valeur.</p>
+<p>On y ajoute parfois les fonctions suivantes: - Tester si une file est vide; - Aaccéder à la tête de la file (sans défiler), c’est à dire sans supprimer l’élément; - Connaitre le nombre d’éléments d’une file appelée <strong>longueur</strong> de la file; - Afficher le contenu d’une file avec <strong>print</strong> ou une méthode dédiée.</p>
+</section>
+<section id="Implémentation">
+<h3>Implémentation<a class="headerlink" href="#Implémentation" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Comme pour les piles, les méthodes et les fonctions sur les listes python permettent de réaliser l’interface d’une file avec les listes python. On peut également programmer un script qui réalise l’interface d’une file.</p>
+</section>
+<section id="id1">
+<h3>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>On considère une file <strong>F</strong> contenant dans l’ordre les nombres 1, 11, 111 et 1111; le nombre 1 est la tête de la file.</p>
+<p>On définit l’interface de la file avec les fonctions et méthodes suivantes : - Créer_file() qui crée une file vide : <code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">creer_file()</span></code> - Enfiler(valeur) qui ajoute une valeur à la file : <code class="docutils literal notranslate"><span class="pre">F.enfiler(1)</span></code> - Défiler() qui supprime la tête de la file en renvoyant sa valeur : <code class="docutils literal notranslate"><span class="pre">F.defiler()</span></code> - Est_vide() qui teste si la file est vide : <code class="docutils literal notranslate"><span class="pre">F.est_vide()</span></code> qui renvoie vrai ici.</p>
+<ol class="arabic simple">
+<li><p>Représenter par un schéma la file <strong>F</strong>.</p></li>
+<li><p>On enfile la valeur 11111. Quel est le contenu de la file <strong>F</strong> ?</p></li>
+<li><p>On défile la file <strong>F</strong>. Quel est son contenu ?</p></li>
+<li><p>Écrire la suite d’instructions qui permet de créer la file <strong>F</strong>.</p></li>
+<li><p>Écrire un algorithme qui défile la file <strong>F</strong> tant qu’elle n’est pas vide.</p></li>
+</ol>
+</section>
+</section>
+<section id="Liste-chainée">
+<h2>Liste chainée<a class="headerlink" href="#Liste-chainée" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>La liste chainée ne doit pas être confondue avec la liste python (associée à un tableau dynamique). La liste chainée est une structure de données qui lie ses éléments comme les maillons d’une chaine. Chaque maillon a une valeur et en même temps se trouve relié au maillon suivant.</p>
+<div class="line-block">
+<div class="line">Le <strong>maillon</strong> de la liste chainée est aussi appelé <strong>cellule</strong>.</div>
+<div class="line">On donne une représentation schématique d’une liste chainée contenant les valeurs 1, 2 et 4.</div>
+</div>
+<p><img alt="Liste chainée" src="../../_images/liste-chainee1.png" /></p>
+<p>En python, les listes chainées n’existent pas nativement. Pour utiliser une telle structure de donnée, on doit écrire un script python qui réalise son interface.</p>
+<section id="id2">
+<h3>Interface<a class="headerlink" href="#id2" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>L’interface d’une liste chainée se compose: - d’une liste vide qu’on notera <strong>nil</strong>; - d’un test qui indique si la liste est vide; - d’un accès au premier élément de la liste, historiquement appelé <strong>car</strong> (langage LISP); ce premier élément pourra être désigné par <strong>tête</strong>; - d’un accès à la liste obtenue à partir de la liste initiale sans son premier élément; cette liste, historiquement appelée <strong>cdr</strong> (langage LISP), sera appelé <strong>queue</strong>; - d’un <strong>constructeur</strong> qui est une fonction
+permettant la création d’une liste chainée ; ce constructeur sera nommé <strong>cons</strong></p>
+<p>D’autres méthodes ou fonctions peuvent compléter l’interface, comme: - la concaténation de deux listes chainées (relier deux listes chainées entre elles); - la recherche d’un élément dans une liste chainée. - l’insertion d’un élément dans la liste chainée; - la longueur d’une liste chainée.</p>
+<p>Ces fonctions supplémentaires feront l’objet d’un exercice.</p>
+</section>
+<section id="id3">
+<h3>Implémentation<a class="headerlink" href="#id3" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>L’implémentation d’une liste chainée en Python nécessite l’écriture d’un script qui réalise l’interface. Nous utiliserons un tel script pour manipuler les listes chainées.</p>
+</section>
+<section id="id4">
+<h3>Exercice<a class="headerlink" href="#id4" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>On reprend la liste chainée donnée en exemple:</p>
+<p><img alt="Liste chainée" src="../../_images/liste-chainee1.png" /></p>
+<p>Cette liste est constituée de trois cellules (maillons) repésentées par des rectangles. Chaque cellule se compose de 2 parties: - la tête (car) qui est une valeur; - la queue (sdr) qui est un pointeur vers une autre liste.</p>
+<ol class="arabic simple">
+<li><p>Vers quelle liste pointe la dernière cellule ?</p></li>
+<li><p>Le constructeur <strong>cons</strong> d’une liste prend 2 arguments : la tête et la queue.
+Comment peut-on construire, avec ce constructeur, la liste constituée par la dernière cellule de notre liste chainée ?</p></li>
+<li><p>En remontant la liste chainée, écrire la construction de la liste chainée avec le constructeur <strong>cons</strong>.</p></li>
+<li><p>Comment ajouter le nombre 0 au début de cette liste chainée ?</p></li>
+</ol>
+<section id="Solution">
+<h4>Solution<a class="headerlink" href="#Solution" title="Lien permanent vers cette rubrique">#</a></h4>
+<ol class="arabic simple">
+<li><p>La dernière cellule est composée de deux parties. La <strong>tête</strong> qui vaut ici 4 et la <strong>queue</strong> qui pointe vers la liste vide notée <strong>nil</strong>.</p></li>
+<li><p>La dernière cellule (non vide) de notre liste est elle-même une liste chainée. Notre constructeur <strong>cons</strong> prend en argument une tête et une queue, donc la dernière cellule sera construite avec l’instruction <code class="docutils literal notranslate"><span class="pre">cons(4,nil)</span></code>.</p></li>
+<li><p>En remontant la liste chainée, sa construction sera obtenue avec l’instruction : <code class="docutils literal notranslate"><span class="pre">cons(1,</span> <span class="pre">cons(2,</span> <span class="pre">cons(4,</span> <span class="pre">nil)))</span></code>.</p></li>
+<li><p>Il y a plusieurs façons d’ajouter le nombre 0 à cette liste chainée:</p></li>
+</ol>
+<ul class="simple">
+<li><p>en reconstruisant toute la liste : <code class="docutils literal notranslate"><span class="pre">cons(0,</span> <span class="pre">cons(1,</span> <span class="pre">cons(2,</span> <span class="pre">cons(4,</span> <span class="pre">nil))))</span></code>;</p></li>
+<li><p>en affectant à la variable <strong>L</strong> notre liste chainée et en utilisant le constructeur :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">nil</span><span class="p">)))</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pile</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># ou</span>
+
+<span class="kn">from</span> <span class="nn">pile</span> <span class="kn">import</span> <span class="n">Pile</span><span class="p">,</span> <span class="n">maillon</span><span class="p">,</span> <span class="n">creer_pile</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pile</span> <span class="kn">import</span> <span class="n">Pile</span><span class="p">,</span> <span class="n">maillon</span><span class="p">,</span> <span class="n">creer_pile</span>
+
+<span class="n">P</span><span class="o">=</span><span class="n">creer_pile</span><span class="p">()</span>
+<span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+|5|3|8|
+|5|3| 8
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">liste_chaine</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">L</span><span class="o">=</span><span class="n">cons</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">cons</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">cons</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">nil</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1-&gt;2-&gt;4-&gt;nil
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="Application-:-tri-d'une-liste-avec-une-pile">
+<h2>Application : tri d’une liste avec une pile<a class="headerlink" href="#Application-:-tri-d'une-liste-avec-une-pile" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>Supposons que l’on souhaite trier une suite de nombres. Il existe de nombreuses méthodes de tris, plus ou moins efficace. Python dispose d’une méthode de tri adaptée à sa structure de liste. Cette méthode est <strong>sort</strong> et s’applique aux listes. La liste est modifiée.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">L</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">L</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, 4, 5, 7, 8, 9]
+</pre></div></div>
+</div>
+<p>La même liste peut être triée avec différents algorithmes: - le tri par sélection - le tri par insertion</p>
+<section id="Le-tri-par-insertion">
+<h3>Le tri par insertion<a class="headerlink" href="#Le-tri-par-insertion" title="Lien permanent vers cette rubrique">#</a></h3>
+<p>Le principe du tri par insertion d’un tableau de nombres consiste à insérer un nombre dans une partie déjà triée. On suppose que l’on effectue un tri par ordre croissant.</p>
+<ul class="simple">
+<li><p>Le tableau est partagé en deux parties; la première partie est triée, la seconde n’est pas encore triée.</p></li>
+<li><p>soit <em>i</em> l’indice du premier élément de la partie non triée ; on compare cet élément avec les éléments de la partie triée. Tant que les éléments de la partie triée sont <strong>supérieurs</strong> à l’élément d’indice <em>i</em>, ceux-ci sont décalés de 1 rang (vers la droite).</p></li>
+<li><p>Il y a alors une place de libre dans la partie triée dans laquelle est placé l’élément d’indice <em>i</em>.</p></li>
+</ul>
+<p>On donne un script python réalisant le tri par insertion.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">tri_par_insertion</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)):</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span>
+        <span class="k">while</span> <span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">liste</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">x</span><span class="p">:</span>
+            <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">liste</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">j</span>
+            <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">x</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">liste</span>
+
+<span class="n">tri_par_insertion</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[15, 4, 19, 8, 11]
+[4, 15, 19, 8, 11]
+[4, 15, 19, 8, 11]
+[4, 8, 15, 19, 11]
+[4, 8, 11, 15, 19]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[4, 8, 11, 15, 19]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pile</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">19</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">tri_par_insertion</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+    <span class="n">P</span><span class="o">=</span><span class="n">creer_pile</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)):</span>
+        <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span>
+        <span class="k">while</span> <span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">liste</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">P</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+            <span class="n">j</span> <span class="o">+=</span><span class="mi">1</span>
+            <span class="n">liste</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">liste</span>
+
+<span class="n">tri_par_insertion</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[15, 4, 19, 8, 11, 7, 13, 11, 10, 5, 3, 19]
+|15|4|
+[4, 15, 19, 8, 11, 7, 13, 11, 10, 5, 3, 19]
+|19|
+[4, 15, 19, 8, 11, 7, 13, 11, 10, 5, 3, 19]
+|19|15|8|
+[4, 8, 15, 19, 11, 7, 13, 11, 10, 5, 3, 19]
+|19|15|11|
+[4, 8, 11, 15, 19, 7, 13, 11, 10, 5, 3, 19]
+|19|15|11|8|7|
+[4, 7, 8, 11, 15, 19, 13, 11, 10, 5, 3, 19]
+|19|15|13|
+[4, 7, 8, 11, 13, 15, 19, 11, 10, 5, 3, 19]
+|19|15|13|11|
+[4, 7, 8, 11, 11, 13, 15, 19, 10, 5, 3, 19]
+|19|15|13|11|11|10|
+[4, 7, 8, 10, 11, 11, 13, 15, 19, 5, 3, 19]
+|19|15|13|11|11|10|8|7|5|
+[4, 5, 7, 8, 10, 11, 11, 13, 15, 19, 3, 19]
+|19|15|13|11|11|10|8|7|5|4|3|
+[3, 4, 5, 7, 8, 10, 11, 11, 13, 15, 19, 19]
+|19|
+[3, 4, 5, 7, 8, 10, 11, 11, 13, 15, 19, 19]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 4, 5, 7, 8, 10, 11, 11, 13, 15, 19, 19]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+|3
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">.</span><span class="n">sommet</span><span class="o">.</span><span class="n">elt</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Type-de-données">Type de données</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#La-pile">La pile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interface-d'une-pile">Interface d’une pile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Implémentation-d'une-pile">Implémentation d’une pile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#La-file">La file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interface">Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Implémentation">Implémentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Liste-chainée">Liste chainée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Implémentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercice</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Application-:-tri-d'une-liste-avec-une-pile">Application : tri d’une liste avec une pile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Le-tri-par-insertion">Le tri par insertion</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par yannick chistel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022, yannick chistel.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
