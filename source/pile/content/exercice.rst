@@ -3,10 +3,10 @@ Exercices
 
 Pour les exercices ci-dessous, on utilise l'interface de **pile** rappelée ci-dessous:
 
-   - ``creer_pile()`` fonction qui crée une pile vide.
-   - ``est_vide(P)`` fonction qui prend en paramètre une pile P et renvoie un booléen permettant de savoir si la pile est vide ou non.
-   - ``empiler(P,e)`` fonction qui prend en paramètre une pile P et un élément e et l'ajoute au sommet de la pile.
-   - ``depiler(P)`` fonction qui prend en paramètre une pile P et renvoie le sommet de la pile en le supprimant.
+- ``creer_pile()`` fonction qui crée une pile vide.
+- ``est_vide(P)`` fonction qui prend en paramètre une pile P et renvoie un booléen permettant de savoir si la pile est vide ou non.
+- ``empiler(P,e)`` fonction qui prend en paramètre une pile P et un élément e et l'ajoute au sommet de la pile.
+- ``depiler(P)`` fonction qui prend en paramètre une pile P et renvoie le sommet de la pile en le supprimant.
 
 Exercice 1
 ----------
