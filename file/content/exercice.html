@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Exercices sur les files &#8212; NSI</title>
+    <title>Exercices &#8212; NSI</title>
   
   
   
@@ -145,7 +145,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Les files</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="josephe.html">Activité</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file.html">La file</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercices sur les files</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../liste_chaine/index.html">Les listes chainées</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -289,7 +289,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercices sur les files</h1>
+    <h1>Exercices</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -302,6 +302,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
             </nav>
         </div>
@@ -313,10 +314,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="toctree-wrapper compound">
-</div>
-<section id="exercices-sur-les-files">
-<h1>Exercices sur les files<a class="headerlink" href="#exercices-sur-les-files" title="Lien permanent vers cette rubrique">#</a></h1>
+  <section id="exercices">
+<h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Pour les exercices ci-dessous, on utilise l’interface de <strong>file</strong> rappelée ci-dessous:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">creer_file()</span></code> fonction qui crée une file vide.</p></li>
@@ -326,11 +325,24 @@ document.write(`
 </ul>
 <section id="exercice-1">
 <h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>On donne ci-dessous la représentation d’une file F dans différents états. Donner les instructions en Python qui permettent d’obtenir ces différents états de la file F.</p>
-<a class="reference internal image-reference" href="../../_images/file_ex1.svg"><img alt="../../_images/file_ex1.svg" class="align-center" src="../../_images/file_ex1.svg" width="300px" /></a>
+<blockquote>
+<div><p>On considère une file F contenant dans l’ordre les nombres 1, 11, 111 et 1111; le nombre 1 est la tête de la file.</p>
+<ol class="arabic simple">
+<li><p>Représenter par un schéma la file F.</p></li>
+<li><p>On enfile la valeur 11111. Quel est le contenu de la file F ?</p></li>
+<li><p>On défile deux fois la file F. Quel est son contenu ?</p></li>
+<li><p>Écrire la suite d’instructions qui permet de créer la file F et réaliser les actions des questions 2 et 3.</p></li>
+<li><p>Écrire un algorithme qui défile la file F tant qu’elle n’est pas vide.</p></li>
+</ol>
+</div></blockquote>
 </section>
 <section id="exercice-2">
 <h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers cette rubrique">#</a></h2>
+<p>On donne ci-dessous la représentation d’une file F dans différents états. Donner les instructions en Python qui permettent d’obtenir ces différents états de la file F.</p>
+<a class="reference internal image-reference" href="../../_images/file_ex1.svg"><img alt="../../_images/file_ex1.svg" class="align-center" src="../../_images/file_ex1.svg" width="300px" /></a>
+</section>
+<section id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
 <ol class="arabic simple">
 <li><p>En utilisant les listes Python, créer une implémentation de l’interface de file.</p></li>
 </ol>
@@ -357,8 +369,8 @@ document.write(`
 </li>
 </ol>
 </section>
-<section id="exercice-3">
-<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
+<section id="exercice-4">
+<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>John Conway est un mathématicien et informaticien britannique qui est l’auteur d’une suite numérique particulière. Chaque terme de la suite se déduit du terme précédent par énumération des chiffres qui le constituent.</p>
 <ul class="simple">
 <li><p>Le premier terme vaut 1. Ce terme est constitué de un 1 qui s’écrit en chiffres 11, second terme de la suite;</p></li>
@@ -426,6 +438,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
   </nav></div>
 

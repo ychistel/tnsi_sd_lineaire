@@ -13,14 +13,11 @@ Cette structure de donnée est dite **FIFO** pour **First In First Out** (premie
 
    On représente souvent une file de façon horizontale comme une file d'attente.
 
-Pour accéder à un élément situé dans la file, il est nécessaire de
-défiler la structure jusqu'à ce que l'élément voulu soit la tête de la file.
+Pour accéder à un élément situé dans la file, il est nécessaire de défiler la structure jusqu'à ce que l'élément voulu soit la tête de la file.
 
-Tous les éléments défilés sont perdus sauf si on les sauvegarde
-dans une structure de donnée adaptée (liste, pile ou autre file).
+Tous les éléments défilés sont perdus sauf si on les sauvegarde dans une structure de donnée adaptée (liste, pile ou autre file).
 
 .. note::
-   :name: remarque
 
    La **file** est utilisée dans différents types de situations:
 
@@ -53,14 +50,3 @@ Les **listes python** disposent de fonctions et de méthodes pour réaliser faci
 - Tester une file vide se fait avec un test sur une liste vide.
 
 Les implémentations d'une file peuvent proposer d'autres fonctions comme la **longueur** d'une file ou l'**accès** à la tête de la file sans la défiler.
-   
-.. admonition:: Exercice résolu
-
-   On considère une file F contenant dans l'ordre les nombres 1, 11, 111 et 1111; le nombre 1 est la tête de la file.
-
-   1. Représenter par un schéma la file F.
-   2. On enfile la valeur 11111. Quel est le contenu de la file F ?
-   3. On défile deux fois la file F. Quel est son contenu ?
-   4. Écrire la suite d'instructions qui permet de créer la file F et réaliser les actions des questions 2 et 3.
-   5. Écrire un algorithme qui défile la file F tant qu'elle n'est pas vide.
-
