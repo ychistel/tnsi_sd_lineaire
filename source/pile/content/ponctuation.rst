@@ -5,7 +5,7 @@ On rencontre en informatique et en mathématiques des expressions contenant des 
 
 Par exemple, en python, les structures de données comme les listes ou les dictionnaires utilisent des crochets et des accolades. 
 
-Comment vérifier que la ponctuation d'une expression est correcte?
+Comment vérifier que la ponctuation d'une expression est correcte ?
 
 #. On donne trois expressions avec ponctuation.
 
@@ -16,10 +16,6 @@ Comment vérifier que la ponctuation d'une expression est correcte?
    Comment peut-on s'assurer que la ponctuation est correcte dans ces expressions ?
 
 #. On considère que chaque expression est une chaine de caractères. Écrire en python la fonction ``verifie`` qui prend en paramètre une chaine de caractère et qui renvoie un tableau contenant toute la ponctuation de l'expression. 
-
-   .. note::
-      
-      On peut rassembler dans un tableau les différents signes de ponctuation à identifier dans une expression.
 
    Par exemple, si on applique le script au trois expressions ci-dessus, on obtient les tableaux:
 
