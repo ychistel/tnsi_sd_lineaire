@@ -60,12 +60,3 @@ html_title = 'NSI'
 html_static_path = ['_static']
 
 html_css_files = ['custom.css']
-
-html_theme_options = {
-    # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
-}
