@@ -1,4 +1,4 @@
-La file
+Cours
 =======
 
 La **file** est une **structure de données linéaire**.

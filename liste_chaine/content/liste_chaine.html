@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Les listes (chainées) &#8212; NSI</title>
+    <title>Cours &#8212; NSI</title>
   
   
   
@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'liste_chaine/content/liste_chaine';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
-    <link rel="next" title="Exercices sur les listes" href="exercice.html" />
+    <link rel="next" title="Exercices" href="exercice.html" />
     <link rel="prev" title="Les listes chainées" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -138,19 +138,19 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../pile/index.html">Les piles</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../pile/content/ponctuation.html">Activité</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../pile/content/pile.html">La pile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pile/content/pile.html">Cours</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../pile/content/exercice.html">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../file/index.html">Les files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../file/content/josephe.html">Activité</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../file/content/file.html">La file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file/content/file.html">Cours</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../file/content/exercice.html">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Les listes chainées</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Les listes (chainées)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercice.html">Exercices sur les listes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Cours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercice.html">Exercices</a></li>
 </ul>
 </li>
 </ul>
@@ -289,7 +289,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Les listes (chainées)</h1>
+    <h1>Cours</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -312,8 +312,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="les-listes-chainees">
-<h1>Les listes (chainées)<a class="headerlink" href="#les-listes-chainees" title="Lien permanent vers cette rubrique">#</a></h1>
+  <section id="cours">
+<h1>Cours<a class="headerlink" href="#cours" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>La liste chainée ne doit pas être confondue avec la liste python (associée à un tableau dynamique). En Python, chaque élément d’une liste est repéré par son <strong>index</strong>, c’est à dire sa position dans la liste, comme pour les tableaux.</p>
 <p>La <strong>liste chainée</strong> est une structure de données qui lie ses éléments comme les maillons d’une chaine. Chaque maillon a une valeur et en même temps se trouve relié au maillon suivant.</p>
 <div class="admonition-exemple admonition">
@@ -321,7 +321,7 @@ document.write(`
 <p>On donne une représentation schématique d’une liste chainée.</p>
 <a class="reference internal image-reference" href="../../_images/liste_chainee_exemple.svg"><img alt="../../_images/liste_chainee_exemple.svg" class="align-center" src="../../_images/liste_chainee_exemple.svg" width="360px" /></a>
 <ul class="simple">
-<li><p>La liste <code class="docutils literal notranslate"><span class="pre">L</span></code> pointe sur un premier maillon de la cahine de valeur 1;</p></li>
+<li><p>La liste <code class="docutils literal notranslate"><span class="pre">L</span></code> pointe sur un premier maillon de la chaine de valeur 1;</p></li>
 <li><p>Le maillon de valeur 1 pointe sur le maillon suivant de valeur 2;</p></li>
 <li><p>Le maillon de valeur 2 pointe sur le maillon de valeur 4;</p></li>
 <li><p>Le dernier maillon ne pointe sur rien; c’est la fin de la liste chainée.</p></li>
@@ -331,49 +331,30 @@ document.write(`
 <h2>Interface de la liste chainée<a class="headerlink" href="#interface-de-la-liste-chainee" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>L’interface d’une liste chainée se compose des primitives suivantes:</p>
 <ul class="simple">
-<li><p>Créer une liste vide ;</p></li>
-<li><p>Ajouter un élément en tête de liste;</p></li>
-<li><p>Renvoyer la valeur de l’élément en tête de liste;</p></li>
-<li><p>Renvoyer la liste sans son premier élément (queue de liste);</p></li>
-<li><p>Tester si la liste est vide;</p></li>
+<li><p>Créer une liste chainée vide ;</p></li>
+<li><p>Ajouter un élément en tête de la liste chainée;</p></li>
+<li><p>Renvoyer la valeur de l’élément en tête de la liste chainée;</p></li>
+<li><p>Renvoyer la queue de la liste chainée, c’est à dire la liste chainée sans son premier élément;</p></li>
+<li><p>Tester si la liste chainée est vide;</p></li>
 </ul>
 </section>
 <section id="implementation-d-une-liste-chainee">
 <h2>Implémentation d’une liste chainée<a class="headerlink" href="#implementation-d-une-liste-chainee" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>L’implémentation d’une liste chainée en Python peut être réalisée avec des <strong>tuples</strong>.
 Le tuple étant <strong>immuable</strong>, la liste créée par cette implémentation est non mutable. Une fois créée, on ne peut pas supprimer les éléments, seulement ajouter des éléments en tête de liste. La modification d’une telle liste implique de construire de nouveaux tuples ce qui rend l’implémentation coûteuse en mémoire.</p>
-<p>Les fonctions qui assurent l’interface de liste sont:</p>
+<p>Les fonctions qui assurent l’interface de liste chainée sont:</p>
 <ul class="simple">
-<li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_liste()</span></code> qui crée une liste vide, c’est à dire un tuple vide;</p></li>
-<li><p>L’opérateur <code class="docutils literal notranslate"><span class="pre">inserer(liste,</span> <span class="pre">element)</span></code> qui ajoute un élément en tête de liste;</p></li>
-<li><p>Les accesseurs <code class="docutils literal notranslate"><span class="pre">tete(liste)</span></code> qui renvoie la tête de liste (sans le supprimer) et <code class="docutils literal notranslate"><span class="pre">queue(liste)</span></code> qui renvoie la liste sans son premier élément;</p></li>
-<li><p>L’accesseur <code class="docutils literal notranslate"><span class="pre">est_vide(liste)</span></code> qui teste si la liste est vide.</p></li>
+<li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_liste()</span></code> qui crée une liste chainée vide, c’est à dire un tuple vide;</p></li>
+<li><p>L’opérateur <code class="docutils literal notranslate"><span class="pre">inserer(liste,</span> <span class="pre">element)</span></code> qui ajoute un élément en tête de la liste chainée;</p></li>
+<li><p>Les accesseurs <code class="docutils literal notranslate"><span class="pre">tete(liste)</span></code> qui renvoie la tête de la liste chainée sans le supprimer et <code class="docutils literal notranslate"><span class="pre">queue(liste)</span></code> qui renvoie la liste chainée sans son premier élément;</p></li>
+<li><p>L’accesseur <code class="docutils literal notranslate"><span class="pre">est_vide(liste)</span></code> qui teste si la liste chainée est vide.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ol class="arabic simple">
 <li><p>Une implémentation peut être faite en programmation objet plus efficace en mémoire que celle présentée ici.</p></li>
-<li><p>Les noms des fonctions peuvent être différents de ceux  donnés ici.</p></li>
+<li><p>Les noms des fonctions peuvent être différents de ceux donnés ici.</p></li>
 </ol>
-</div>
-<div class="admonition-exercice admonition">
-<p class="admonition-title">Exercice</p>
-<p>On reprend la liste chainée donnée en exemple:</p>
-<a class="reference internal image-reference" href="../../_images/liste_chainee_exemple.svg"><img alt="../../_images/liste_chainee_exemple.svg" class="align-center" src="../../_images/liste_chainee_exemple.svg" width="360px" /></a>
-<p>Cette liste est constituée de trois maillons repésentés par des rectangles. Chaque maillon se compose de 2 parties:</p>
-<ul class="simple">
-<li><p>la tête qui contient une valeur;</p></li>
-<li><p>la queue qui contient la suite de la liste.</p></li>
-</ul>
-<p>Pour schématiser cette liste, on pourra la noter L-&gt;[1]-&gt;[2]-&gt;[4]-&gt;[].</p>
-<ol class="arabic simple">
-<li><p>Vers quelle liste pointe la dernière cellule ?</p></li>
-<li><p>On souhaite représenter cette liste en écrivant chaque cellule sous la forme d’un couple (tête, queue). Donner une repésentation de cette liste.</p></li>
-<li><p>Quelles sont les instructions qui permettent de créer cette liste chainée ?</p></li>
-<li><p>Comment mémoriser dans une variable Q la liste chainée [2]-&gt;[4]-&gt;[] sans la recréer ?</p></li>
-<li><p>Comment mémoriser dans une variable R la liste chainée [4]-&gt;[] sans la recréer ?</p></li>
-</ol>
-<p><a class="reference external" href="exemple.html">Solution de l'exercice</a></p>
 </div>
 </section>
 </section>
@@ -403,7 +384,7 @@ Le tuple étant <strong>immuable</strong>, la liste créée par cette implément
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Exercices sur les listes</p>
+        <p class="prev-next-title">Exercices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
