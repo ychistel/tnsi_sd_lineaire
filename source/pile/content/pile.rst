@@ -1,4 +1,4 @@
-La pile
+Cours
 ==========
 
 Une **pile** est une **structure de données linéaire**.
