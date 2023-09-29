@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="194.74506mm"
+   height="75.160301mm"
+   viewBox="0 0 194.74506 75.160301"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="suite_conway.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="402.6878"
+     inkscape:cy="123.48589"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(2.1225322,5.0913383)">
+    <g
+       id="g914">
+      <rect
+         ry="4.3646193"
+         y="7.1481104"
+         x="-1.8340322"
+         height="62.632351"
+         width="194.16806"
+         id="rect881"
+         style="opacity:1;fill:#d5f6ff;fill-opacity:1;stroke:#808080;stroke-width:0.57700002;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.94117647" />
+      <g
+         id="g879">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           x="6.1176672"
+           y="19.586937"
+           id="text817"><tspan
+             sodipodi:role="line"
+             id="tspan815"
+             x="6.1176672"
+             y="19.586937"
+             style="stroke-width:0.16206062">premier terme : 1</tspan></text>
+        <text
+           id="text821"
+           y="19.586937"
+           x="104.54274"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           xml:space="preserve"><tspan
+             style="stroke-width:0.16206062"
+             y="19.586937"
+             x="104.54274"
+             id="tspan819"
+             sodipodi:role="line">se lit : un 1</tspan></text>
+        <text
+           id="text829"
+           y="30.766142"
+           x="6.1176672"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           xml:space="preserve"><tspan
+             style="stroke-width:0.16206062"
+             y="30.766142"
+             x="6.1176672"
+             id="tspan827"
+             sodipodi:role="line">second terme : 11</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           x="104.54274"
+           y="30.17028"
+           id="text833"><tspan
+             sodipodi:role="line"
+             id="tspan831"
+             x="104.54274"
+             y="30.17028"
+             style="stroke-width:0.16206062">se lit : deux 1</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           x="6.1176672"
+           y="41.446815"
+           id="text837"><tspan
+             sodipodi:role="line"
+             id="tspan835"
+             x="6.1176672"
+             y="41.446815"
+             style="stroke-width:0.16206062">troisième terme : 21</tspan></text>
+        <text
+           id="text841"
+           y="40.753624"
+           x="104.54274"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           xml:space="preserve"><tspan
+             style="stroke-width:0.16206062"
+             y="40.753624"
+             x="104.54274"
+             id="tspan839"
+             sodipodi:role="line">se lit : un 2 un 1</tspan></text>
+        <text
+           id="text845"
+           y="51.369411"
+           x="6.1176672"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           xml:space="preserve"><tspan
+             style="stroke-width:0.16206062"
+             y="51.369411"
+             x="6.1176672"
+             id="tspan843"
+             sodipodi:role="line">quatrième terme : 1211</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           x="104.54274"
+           y="51.336983"
+           id="text849"><tspan
+             sodipodi:role="line"
+             id="tspan847"
+             x="104.54274"
+             y="51.336983"
+             style="stroke-width:0.16206062">se lit : un 1 un 2 deux 1</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           x="6.1176672"
+           y="61.920311"
+           id="text853"><tspan
+             sodipodi:role="line"
+             id="tspan851"
+             x="6.1176672"
+             y="61.920311"
+             style="stroke-width:0.16206062">cinquième terme : 111211</tspan></text>
+        <text
+           id="text857"
+           y="61.920311"
+           x="104.54274"
+           style="font-style:normal;font-weight:normal;font-size:6.48242474px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16206062"
+           xml:space="preserve"><tspan
+             style="stroke-width:0.16206062"
+             y="61.920311"
+             x="104.54274"
+             id="tspan855"
+             sodipodi:role="line">se lit : ...</tspan></text>
+      </g>
+      <rect
+         ry="2.3708138"
+         y="-4.8958383"
+         x="54.42857"
+         height="15.95685"
+         width="85.61161"
+         id="rect883"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#666666;stroke-width:0.391;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.94117647" />
+      <text
+         transform="scale(0.98570016,1.0145073)"
+         id="text887"
+         y="5.2992725"
+         x="61.475136"
+         style="font-style:normal;font-weight:normal;font-size:8.89208221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.22230206"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.22230206"
+           y="5.2992725"
+           x="61.475136"
+           id="tspan885"
+           sodipodi:role="line">Suite de Conway</tspan></text>
+    </g>
+  </g>
+</svg>

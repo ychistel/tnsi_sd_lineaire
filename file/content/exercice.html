@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -34,9 +34,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -153,6 +153,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../liste_chaine/content/exercice.html">Exercices</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entrainement pratique</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../pile/content/ep_pr_1.html">Exercice pratique</a></li>
 </ul>
 
     </div>
@@ -370,21 +374,41 @@ document.write(`
 <section id="exercice-4">
 <h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>John Conway est un mathématicien et informaticien britannique qui est l’auteur d’une suite numérique particulière. Chaque terme de la suite se déduit du terme précédent par énumération des chiffres qui le constituent.</p>
-<ul class="simple">
-<li><p>Le premier terme vaut 1. Ce terme est constitué de un 1 qui s’écrit en chiffres 11, second terme de la suite;</p></li>
-<li><p>Le second terme vaut 11. Ce terme est constitué de deux 1 qui s’écrit en chiffres 21;</p></li>
-<li><p>Le troisème terme de la suite est donc 21. Ce terme est constitué de un 2 et un 1 qui s’écrit en chiffres 1211;</p></li>
-<li><p>Le quatrième terme de la suite est donc 1211. Ce terme est constitué de un 1, un 2 et deux 1 qui s’écrit 111221;</p></li>
-</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/suite_conway.svg"><img alt="../../_images/suite_conway.svg" src="../../_images/suite_conway.svg" width="480" /></a>
+</figure>
 <p>Cette suite de <strong>Conway</strong> s’appelle <em>look and say</em> et se construit à partir d’un chiffre appelé graine. L’objectif de l’exercice est d’écrire les différents termes de la suite de Conway.</p>
-<p>Pour cela, on utilise 2 files pour écrire les termes de la suite de Conway. La file <code class="docutils literal notranslate"><span class="pre">f1</span></code> contient les chiffres d’un terme de la suite et la file <code class="docutils literal notranslate"><span class="pre">f2</span></code> contient son énumération à l’aide de <strong>tuple</strong>.</p>
-<ol class="arabic simple">
-<li><p>Donner le cinquième terme de la suite de Conway.</p></li>
-<li><p>Pour ce dernier terme de la suite de Conway, donner les contenus des files <code class="docutils literal notranslate"><span class="pre">f1</span></code> et <code class="docutils literal notranslate"><span class="pre">f2</span></code>.</p></li>
-<li><p>Coder la fonction <code class="docutils literal notranslate"><span class="pre">terme_en_file</span></code> qui prend en paramètre un terme de la suite sous forme de chaine de caractères et renvoie une file contenant chaque chiffre de ce terme.</p></li>
-<li><p>Coder la fonction <code class="docutils literal notranslate"><span class="pre">enumere_terme</span></code> qui prend en paramètre une file <code class="docutils literal notranslate"><span class="pre">f1</span></code> dont les valeurs sont les chiffres d’un terme de la suite. Cette fonction doit parcourir la file <code class="docutils literal notranslate"><span class="pre">f1</span></code> et renvoyer une file <code class="docutils literal notranslate"><span class="pre">f2</span></code> qui contient les tuples énumérant les chiffres de la file <code class="docutils literal notranslate"><span class="pre">f1</span></code>.</p></li>
-<li><p>Coder la fonction <code class="docutils literal notranslate"><span class="pre">terme_suivant</span></code> qui prend en paramètre la file <code class="docutils literal notranslate"><span class="pre">f2</span></code> contenant l’énumération des chiffres d’un terme de la suite de Conway et qui renvoie le terme suivant de la suite sous forme d’une chaine de caractères.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">suite_conway</span></code> prend en paramètre le nombre entier <em>n</em> et renvoie la liste des <em>n</em> premier termes de la suite de Conway construite avec les fonctions <code class="docutils literal notranslate"><span class="pre">terme_en_file</span></code>, <code class="docutils literal notranslate"><span class="pre">enumere_terme</span></code> et <code class="docutils literal notranslate"><span class="pre">terme_suivant</span></code>.</p></li>
+<ol class="arabic">
+<li><p>Donner le prochain terme de la suite de Conway.</p></li>
+<li><p>On utilise 2 files pour écrire les termes de la suite de Conway. La file <code class="docutils literal notranslate"><span class="pre">f1</span></code> contient les chiffres d’un terme de la suite et la file <code class="docutils literal notranslate"><span class="pre">f2</span></code> contient son énumération sous forme de <strong>tuple</strong>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/file_conway.svg"><img alt="../../_images/file_conway.svg" src="../../_images/file_conway.svg" width="400" /></a>
+</figure>
+<p>Donner les contenus des files <code class="docutils literal notranslate"><span class="pre">f1</span></code> et <code class="docutils literal notranslate"><span class="pre">f2</span></code> pour les cinquième et sixième terme de la suite de Conway.</p>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">terme_en_file</span></code> prend en paramètre un terme de la suite sous forme de chaine de caractères et renvoie la file contenant chaque  chiffre de ce terme.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F1</span> <span class="o">=</span> <span class="n">terme_en_file</span><span class="p">(</span><span class="s1">&#39;1211&#39;</span><span class="p">)</span> <span class="c1"># F1 contient chaque chiffre comme valeur de file</span>
+</pre></div>
+</div>
+<p>Écrire en Python la fonction <code class="docutils literal notranslate"><span class="pre">terme_en_file</span></code> et la tester avec les premiers termes de la suite de Conway.</p>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">lire_terme</span></code> prend en paramètre une file <code class="docutils literal notranslate"><span class="pre">f</span></code> contenant les chiffres d’un terme de la suite de Conway. Cette fonction renvoie une file qui contient les tuples énumérant les chiffres de la file <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F2</span> <span class="o">=</span> <span class="n">lire_terme</span><span class="p">(</span><span class="n">F1</span><span class="p">)</span> <span class="c1"># F2 est une file avec les tuples</span>
+</pre></div>
+</div>
+<p>Écrire en Python la fonction <code class="docutils literal notranslate"><span class="pre">lire_terme</span></code> et la tester avec les premiers termes de la suite de Conway.</p>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">terme_suivant</span></code> prend en paramètre une file <code class="docutils literal notranslate"><span class="pre">f</span></code> contenant l’énumération des chiffres d’un terme de la suite de Conway et renvoie le terme suivant de la suite sous forme d’une chaine de caractères.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t_1</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t_2</span> <span class="o">=</span> <span class="n">terme_suivant</span><span class="p">(</span><span class="n">F2</span><span class="p">)</span> <span class="c1"># où F2 contient le tuple (1,1) et t_2 vaut alors &#39;11&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t_3</span> <span class="o">=</span> <span class="n">terme_suivant</span><span class="p">(</span><span class="n">F2</span><span class="p">)</span> <span class="c1"># où F2 contient le tuple (2,1) et t_3 vaut alors &#39;21&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t_4</span> <span class="o">=</span> <span class="n">terme_suivant</span><span class="p">(</span><span class="n">F2</span><span class="p">)</span> <span class="c1"># où F2 contient les tuples (1,2) et (1,1) et t_3 vaut alors &#39;1211&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">suite_conway</span></code> prend en paramètre un nombre entier positif <strong>n</strong> et renvoie un tableau qui contient les <strong>n</strong> premiers termes de la suite de Conway construite avec les fonctions <code class="docutils literal notranslate"><span class="pre">terme_en_file</span></code>, <code class="docutils literal notranslate"><span class="pre">lire_terme</span></code> et <code class="docutils literal notranslate"><span class="pre">terme_suivant</span></code>.</p>
+<p>Écrire en Python la fonction <code class="docutils literal notranslate"><span class="pre">suite_conway</span></code>.</p>
+</li>
 </ol>
 </section>
 </section>
@@ -484,8 +508,8 @@ Par yannick chistel
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

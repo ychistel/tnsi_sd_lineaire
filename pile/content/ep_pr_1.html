@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>TP &#8212; NSI</title>
+    <title>Exercice pratique &#8212; NSI</title>
   
   
   
@@ -44,9 +44,10 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="../../_static/translations.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tableau/content/tp';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pile/content/ep_pr_1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="prev" title="Exercices" href="../../liste_chaine/content/exercice.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -134,10 +135,10 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure de données linéaires</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../pile/index.html">Les piles</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../pile/content/ponctuation.html">Activité</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../pile/content/pile.html">Cours</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../pile/content/exercice.html">Exercices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Les piles</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ponctuation.html">Activité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pile.html">Cours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercice.html">Exercices</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../file/index.html">Les files</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -153,8 +154,8 @@
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entrainement pratique</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../pile/content/ep_pr_1.html">Exercice pratique</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercice pratique</a></li>
 </ul>
 
     </div>
@@ -209,7 +210,7 @@
       
       
       
-      <li><a href="../../_sources/tableau/content/tp.rst" target="_blank"
+      <li><a href="../../_sources/pile/content/ep_pr_1.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -278,9 +279,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -291,20 +290,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>TP</h1>
+    <h1>Exercice pratique</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenu </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">Objectif</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-demande">Travail demandé</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -314,32 +304,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="tp">
-<h1>TP<a class="headerlink" href="#tp" title="Lien permanent vers cette rubrique">#</a></h1>
-<section id="objectif">
-<h2>Objectif<a class="headerlink" href="#objectif" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>On souhaite manipuler des dates en Python. Il existe un module Date mais on ne va pas l’utiliser.</p>
-<p>On considère qu’une date contient le jour, le mois et l’année. Par exemple, la date du 6 septembre 2022. On s’intéressera aux dates comprises entre les années 2000 et 2100.</p>
-<p>L’objectif est de :</p>
+  <section id="exercice-pratique">
+<h1>Exercice pratique<a class="headerlink" href="#exercice-pratique" title="Lien permanent vers cette rubrique">#</a></h1>
+<p>Nous avons l’habitude de noter les expressions arithmétiques avec des parenthèses comme par exemple : (2 + 3) × 5.</p>
+<p>Il existe une autre notation utilisée par certaines calculatrices, appelée notation postfixe, qui
+n’utilise pas de parenthèses. L’expression arithmétique précédente est alors obtenue en
+saisissant successivement 2, puis 3, puis l’opérateur +, puis 5, et enfin l’opérateur ×. On
+modélise cette saisie par le tableau <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">'+',</span> <span class="pre">5,</span> <span class="pre">'*']</span></code>.</p>
+<p>Autre exemple, la notation postfixe de 3 × 2 + 5 est modélisée par le tableau : <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">2,</span> <span class="pre">'*',</span> <span class="pre">5,</span> <span class="pre">'+']</span></code>.</p>
+<p>D’une manière plus générale, la valeur associée à une expression arithmétique en notation
+postfixe est déterminée à l’aide d’une pile en parcourant l’expression arithmétique de gauche
+à droite de la façon suivante :</p>
 <ul class="simple">
-<li><p>créer des variables qui ont pour valeur une date.</p></li>
-<li><p>créer des opérations sur les dates comme l’égalité ou la comparaison;</p></li>
-<li><p>déterminer si une date est vide ou non;</p></li>
-<li><p>déterminer si une date est valide;</p></li>
-<li><p>afficher une date en utilisant une chaine de caractères</p></li>
+<li><p>si l’élément parcouru est un nombre, on le place au sommet de la pile ;</p></li>
+<li><p>si l’élément parcouru est un opérateur, on récupère les deux éléments situés au sommet de la pile et on leur applique l’opérateur. On place alors le résultat au sommet de la pile ;</p></li>
+<li><p>à la fin du parcours, il reste alors un seul élément dans la pile qui est le résultat de l’expression arithmétique.</p></li>
 </ul>
-</section>
-<section id="travail-demande">
-<h2>Travail demandé<a class="headerlink" href="#travail-demande" title="Lien permanent vers cette rubrique">#</a></h2>
-<ol class="arabic simple">
-<li><p>Donner différents types permettant de créer une date. On fera plusieurs propositions en précisant le type utilisé dans chaque cas.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_vide(d)</span></code> prend en paramètre une date <code class="docutils literal notranslate"><span class="pre">d</span></code> et renvoie un booléen affirmant si la date est vide ou non. Écrire le code de cette fonction.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_valide(d)</span></code> prend une date <cite>d</cite> en paramètre et renvoie un booléen qui affirme si la date <code class="docutils literal notranslate"><span class="pre">d</span></code> est correctement écrite, dans le bon type et le bon format et avec des valeurs cohérentes. Écrire le code de cette fonction.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">egales</span></code> prend en paramètres deux dates et renvoie un booléen affirmant que les dates saisies sont les mêmes. Écrire le code de cette fonction.</p></li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">est_avant(d1,d2)</span></code> prend en paramètres deux dates <code class="docutils literal notranslate"><span class="pre">d1</span></code> et <code class="docutils literal notranslate"><span class="pre">d2</span></code> et renvoie un booléen affirmant que la date <code class="docutils literal notranslate"><span class="pre">d1</span></code> est plus ancienne que la date <code class="docutils literal notranslate"><span class="pre">d2</span></code>. Écrire le code de cette fonction.</p></li>
-<li><p>Créer une fonction d’affichage de la date.</p></li>
-</ol>
-</section>
+<p>Dans le cadre de cet exercice, on se limitera aux opérations × et +.</p>
+<p>Pour cet exercice, on dispose d’une classe <code class="docutils literal notranslate"><span class="pre">Pile</span></code> qui implémente les méthodes de base sur la structure de pile.</p>
+<p>Compléter le script de la fonction eval_expression qui reçoit en paramètre une liste python représentant la notation postfixe d’une expression arithmétique et qui renvoie sa valeur associée.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pile</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe definissant une structure de pile.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renvoie le booleen True si la pile est vide, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">empiler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Place l&#39;element v au sommet de la pile</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">depiler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retire et renvoie l&#39;element place au sommet de la pile,</span>
+<span class="sd">        si la pile n&#39;est pas vide.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">eval_expression</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Pile</span><span class="p">()</span>
+    <span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="n">tab</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="o">!=</span> <span class="s1">&#39;+&#39;</span> <span class="o">...</span> <span class="n">element</span> <span class="o">!=</span> <span class="s1">&#39;*&#39;</span><span class="p">:</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="o">...</span><span class="p">:</span>
+                <span class="n">resultat</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span> <span class="o">+</span> <span class="o">...</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">resultat</span> <span class="o">=</span> <span class="o">...</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">...</span>
+</pre></div>
+</div>
 </section>
 
 
@@ -353,27 +378,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../../liste_chaine/content/exercice.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Exercices</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenu
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">Objectif</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travail-demande">Travail demandé</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
