@@ -59,18 +59,42 @@ Exercice 4
 
 John Conway est un mathématicien et informaticien britannique qui est l'auteur d'une suite numérique particulière. Chaque terme de la suite se déduit du terme précédent par énumération des chiffres qui le constituent.
 
-- Le premier terme vaut 1. Ce terme est constitué de un 1 qui s'écrit en chiffres 11, second terme de la suite;
-- Le second terme vaut 11. Ce terme est constitué de deux 1 qui s'écrit en chiffres 21;
-- Le troisème terme de la suite est donc 21. Ce terme est constitué de un 2 et un 1 qui s'écrit en chiffres 1211;
-- Le quatrième terme de la suite est donc 1211. Ce terme est constitué de un 1, un 2 et deux 1 qui s'écrit 111221;
+.. figure:: ../img/suite_conway.svg
+   :align: center
+   :width: 480
+
 
 Cette suite de **Conway** s'appelle *look and say* et se construit à partir d'un chiffre appelé graine. L'objectif de l'exercice est d'écrire les différents termes de la suite de Conway.
 
-Pour cela, on utilise 2 files pour écrire les termes de la suite de Conway. La file ``f1`` contient les chiffres d'un terme de la suite et la file ``f2`` contient son énumération à l'aide de **tuple**.
+#. Donner le prochain terme de la suite de Conway.
+#. On utilise 2 files pour écrire les termes de la suite de Conway. La file ``f1`` contient les chiffres d'un terme de la suite et la file ``f2`` contient son énumération sous forme de **tuple**.
 
-#. Donner le cinquième terme de la suite de Conway.
-#. Pour ce dernier terme de la suite de Conway, donner les contenus des files ``f1`` et ``f2``.
-#. Coder la fonction ``terme_en_file`` qui prend en paramètre un terme de la suite sous forme de chaine de caractères et renvoie une file contenant chaque chiffre de ce terme.
-#. Coder la fonction ``enumere_terme`` qui prend en paramètre une file ``f1`` dont les valeurs sont les chiffres d'un terme de la suite. Cette fonction doit parcourir la file ``f1`` et renvoyer une file ``f2`` qui contient les tuples énumérant les chiffres de la file ``f1``.
-#. Coder la fonction ``terme_suivant`` qui prend en paramètre la file ``f2`` contenant l'énumération des chiffres d'un terme de la suite de Conway et qui renvoie le terme suivant de la suite sous forme d'une chaine de caractères.
-#. La fonction ``suite_conway`` prend en paramètre le nombre entier *n* et renvoie la liste des *n* premier termes de la suite de Conway construite avec les fonctions ``terme_en_file``, ``enumere_terme`` et ``terme_suivant``.
+   .. figure:: ../img/file_conway.svg
+      :align: center
+      :width: 400
+
+   Donner les contenus des files ``f1`` et ``f2`` pour les cinquième et sixième terme de la suite de Conway.
+
+#. La fonction ``terme_en_file`` prend en paramètre un terme de la suite sous forme de chaine de caractères et renvoie la file contenant chaque  chiffre de ce terme.
+
+   >>> F1 = terme_en_file('1211') # F1 contient chaque chiffre comme valeur de file
+
+   Écrire en Python la fonction ``terme_en_file`` et la tester avec les premiers termes de la suite de Conway.
+
+#. La fonction ``lire_terme`` prend en paramètre une file ``f`` contenant les chiffres d'un terme de la suite de Conway. Cette fonction renvoie une file qui contient les tuples énumérant les chiffres de la file ``f``.
+
+   >>> F2 = lire_terme(F1) # F2 est une file avec les tuples
+
+   Écrire en Python la fonction ``lire_terme`` et la tester avec les premiers termes de la suite de Conway.
+
+#. La fonction ``terme_suivant`` prend en paramètre une file ``f`` contenant l'énumération des chiffres d'un terme de la suite de Conway et renvoie le terme suivant de la suite sous forme d'une chaine de caractères.
+
+   >>> t_1 = '1'
+   >>> t_2 = terme_suivant(F2) # où F2 contient le tuple (1,1) et t_2 vaut alors '11'
+   >>> t_3 = terme_suivant(F2) # où F2 contient le tuple (2,1) et t_3 vaut alors '21'
+   >>> t_4 = terme_suivant(F2) # où F2 contient les tuples (1,2) et (1,1) et t_3 vaut alors '1211'
+
+#. La fonction ``suite_conway`` prend en paramètre un nombre entier positif **n** et renvoie un tableau qui contient les **n** premiers termes de la suite de Conway construite avec les fonctions ``terme_en_file``, ``lire_terme`` et ``terme_suivant``.
+
+   Écrire en Python la fonction ``suite_conway``.
+
