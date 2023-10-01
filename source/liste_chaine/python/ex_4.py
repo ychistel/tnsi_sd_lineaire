@@ -46,9 +46,16 @@ def longueur(liste_chaine:Liste) -> int:
         while not(liste_chaine.est_vide()):
             liste_chaine = liste_chaine.queue()
             long += 1
-        print(liste_chaine)
         return long
-        
+
+def atteint(liste_chaine:Liste,n:int):
+    while not(liste_chaine.est_vide()) and n > 0:
+        liste_chaine = liste_chaine.queue()
+        n = n-1
+    return liste_chaine.tete()
+    
+    
+    
 if __name__ == '__main__':
     L = Liste()
     L.inserer(3)
@@ -56,3 +63,4 @@ if __name__ == '__main__':
     L.inserer(4)
     lg = longueur(L)
     print(lg,L)
+    print(atteint(L,0))
