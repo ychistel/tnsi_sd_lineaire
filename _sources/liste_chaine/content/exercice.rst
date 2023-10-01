@@ -1,12 +1,14 @@
 Exercices
 =========
 
-On redonne l'interface qui sera utilisée dans les exercices.
+.. note::
 
-- Le constructeur ``creer_liste()`` qui crée une liste chainée vide, c'est à dire un tuple vide;
-- L'opérateur ``inserer(liste, element)`` qui ajoute un élément en tête de la liste chainée;
-- Les accesseurs ``tete(liste)`` qui renvoie la tête de la liste chainée sans le supprimer et ``queue(liste)`` qui renvoie la liste chainée sans son premier élément;
-- L'accesseur ``est_vide(liste)`` qui teste si la liste chainée est vide.
+   On donne l'interface d'une liste chainée qui sera utilisée dans les exercices 1 et 2.
+
+   - Le constructeur ``creer_liste()`` qui crée une liste chainée vide, c'est à dire un tuple vide;
+   - L'opérateur ``inserer(element, liste)`` qui ajoute un élément en tête de la liste chainée;
+   - Les accesseurs ``tete(liste)`` qui renvoie la tête de la liste chainée sans le supprimer et ``queue(liste)`` qui renvoie la liste chainée sans son premier élément;
+   - L'accesseur ``est_vide(liste)`` qui teste si la liste chainée est vide.
 
 Exercice 1
 -----------
@@ -25,23 +27,35 @@ Cette liste chainée est constituée de trois maillons repésentés par des rect
 
 Pour schématiser cette liste, on pourra la noter L->[1]->[2]->[4]->[].
 
-1. Vers quelle liste pointe le dernier maillon qui a pour valeur 4?
-2. On souhaite représenter cette liste en écrivant chaque maillon sous la forme d'un tuple (tête, queue). Donner une repésentation de cette liste.
-3. Quelles sont les instructions en Python qui permettent de créer cette liste chainée ?
-4. Comment mémoriser dans une variable Q la liste chainée [2]->[4]->[] sans la recréer ?
-5. Comment mémoriser dans une variable R la liste chainée [4]->[] sans la recréer ?
+#. On construit cette liste chainée L en écrivant chaque maillon sous la forme d'un tuple (tête, queue). 
+
+   a) Écrire avec des tuples cette liste chainée L.
+   b) Donner une suite d'instructions en Python qui permet de construire cette liste chainée L. On n'utilise que les fonctions de l'interface de la liste chainée.
+
+#. Comment mémoriser dans une variable Q la liste chainée [2]->[4]->[] à partir de la liste chainée L ?
+#. On construit une liste chainée P en saisissant les instructions Python suivantes dans une console:
+
+   >>> P = creer_liste()
+   >>> P = inserer(tete(L),P)
+   >>> P = inserer(tete(queue(L)),P)
+
+   Représenter le contenu de la liste chainée P.
+
+
+#. On construit la liste chainée R représentée par [1]->[2]->[]. Donner les instructions Python qui permettent de construire R à partir de la liste chainée L ?
 
 Exercice 2
 ----------
 
-1. On donne la représentation d'une liste chainée:
+#. On donne la représentation d'une liste chainée:
 
    .. image:: ../img/liste_chainee_1.svg
       :align: center
       :width: 420px
- 
+
    Donner la suite d'instruction en Python pour créer cette liste chainée.
-2. En utilisant la liste ``L1``, créer les différentes listes  de l'illustration ci-dessous.
+
+#. En utilisant la liste ``L1``, créer les différentes listes  de l'illustration ci-dessous.
 
    .. image:: ../img/liste_chainee_2.svg
       :align: center
@@ -50,31 +64,17 @@ Exercice 2
 Exercice 3 
 ----------
 
-On donne une implémentation de liste avec les tuples.
+On donne une implémentation de la liste chainée avec des tuples.
 
-.. code:: python
-   
-   def creer_liste():
-       return ()
+.. literalinclude:: ../python/implementation_tuple.py
 
-   def est_vide(liste):
-      return liste == ()
+#. Créer et afficher la liste ``L1`` ci-dessous:
 
-   def inserer(liste, element):
-      return (element, liste)
-
-   def tete(liste):
-      assert not est_vide(liste), "tête, liste vide !"
-      element, _ = liste
-      return element
-
-   def queue(liste):
-      assert not est_vide(liste), "queue, liste vide !"
-      _, queue = liste
-      return queue
-
-1. Créer et afficher la liste ``L1`` de l'exercice précédent.
-2. On souhaite créer une fonction ``afficher(liste)`` qui prend en paramètre une liste et affiche la liste sous forme de chaine:
+   .. image:: ../img/liste_chainee_1.svg
+      :align: center
+      :width: 420px
+         
+#. On souhaite créer une fonction ``afficher(liste)`` qui prend en paramètre une liste et affiche la liste sous forme de chaine:
    
    - chaque valeur sera écrite entre crochets
    - les valeurs seront reliées par des flèches "->".

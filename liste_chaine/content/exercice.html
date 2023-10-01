@@ -321,13 +321,16 @@ document.write(`
                   
   <section id="exercices">
 <h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers cette rubrique">#</a></h1>
-<p>On redonne l’interface qui sera utilisée dans les exercices.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On donne l’interface d’une liste chainée qui sera utilisée dans les exercices 1 et 2.</p>
 <ul class="simple">
 <li><p>Le constructeur <code class="docutils literal notranslate"><span class="pre">creer_liste()</span></code> qui crée une liste chainée vide, c’est à dire un tuple vide;</p></li>
-<li><p>L’opérateur <code class="docutils literal notranslate"><span class="pre">inserer(liste,</span> <span class="pre">element)</span></code> qui ajoute un élément en tête de la liste chainée;</p></li>
+<li><p>L’opérateur <code class="docutils literal notranslate"><span class="pre">inserer(element,</span> <span class="pre">liste)</span></code> qui ajoute un élément en tête de la liste chainée;</p></li>
 <li><p>Les accesseurs <code class="docutils literal notranslate"><span class="pre">tete(liste)</span></code> qui renvoie la tête de la liste chainée sans le supprimer et <code class="docutils literal notranslate"><span class="pre">queue(liste)</span></code> qui renvoie la liste chainée sans son premier élément;</p></li>
 <li><p>L’accesseur <code class="docutils literal notranslate"><span class="pre">est_vide(liste)</span></code> qui teste si la liste chainée est vide.</p></li>
 </ul>
+</div>
 <section id="exercice-1">
 <h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On considère la liste chainée représentée ci-dessous:</p>
@@ -338,12 +341,23 @@ document.write(`
 <li><p>la queue qui contient la suite de la liste.</p></li>
 </ul>
 <p>Pour schématiser cette liste, on pourra la noter L-&gt;[1]-&gt;[2]-&gt;[4]-&gt;[].</p>
-<ol class="arabic simple">
-<li><p>Vers quelle liste pointe le dernier maillon qui a pour valeur 4?</p></li>
-<li><p>On souhaite représenter cette liste en écrivant chaque maillon sous la forme d’un tuple (tête, queue). Donner une repésentation de cette liste.</p></li>
-<li><p>Quelles sont les instructions en Python qui permettent de créer cette liste chainée ?</p></li>
-<li><p>Comment mémoriser dans une variable Q la liste chainée [2]-&gt;[4]-&gt;[] sans la recréer ?</p></li>
-<li><p>Comment mémoriser dans une variable R la liste chainée [4]-&gt;[] sans la recréer ?</p></li>
+<ol class="arabic">
+<li><p>On construit cette liste chainée L en écrivant chaque maillon sous la forme d’un tuple (tête, queue).</p>
+<ol class="loweralpha simple">
+<li><p>Écrire avec des tuples cette liste chainée L.</p></li>
+<li><p>Donner une suite d’instructions en Python qui permet de construire cette liste chainée L. On n’utilise que les fonctions de l’interface de la liste chainée.</p></li>
+</ol>
+</li>
+<li><p>Comment mémoriser dans une variable Q la liste chainée [2]-&gt;[4]-&gt;[] à partir de la liste chainée L ?</p></li>
+<li><p>On construit une liste chainée P en saisissant les instructions Python suivantes dans une console:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="n">creer_liste</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">L</span><span class="p">),</span><span class="n">P</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">)),</span><span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Représenter le contenu de la liste chainée P.</p>
+</li>
+<li><p>On construit la liste chainée R représentée par [1]-&gt;[2]-&gt;[]. Donner les instructions Python qui permettent de construire R à partir de la liste chainée L ?</p></li>
 </ol>
 </section>
 <section id="exercice-2">
@@ -360,29 +374,31 @@ document.write(`
 </section>
 <section id="exercice-3">
 <h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers cette rubrique">#</a></h2>
-<p>On donne une implémentation de liste avec les tuples.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_liste</span><span class="p">():</span>
+<p>On donne une implémentation de la liste chainée avec des tuples.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">creer_liste</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
-   <span class="k">return</span> <span class="n">liste</span> <span class="o">==</span> <span class="p">()</span>
+    <span class="k">return</span> <span class="n">liste</span> <span class="o">==</span> <span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">inserer</span><span class="p">(</span><span class="n">liste</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-   <span class="k">return</span> <span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">liste</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">liste</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">tete</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
-   <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">liste</span><span class="p">),</span> <span class="s2">&quot;tête, liste vide !&quot;</span>
-   <span class="n">element</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">liste</span>
-   <span class="k">return</span> <span class="n">element</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">liste</span><span class="p">),</span> <span class="s2">&quot;tête, liste vide !&quot;</span>
+    <span class="n">element</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">liste</span>
+    <span class="k">return</span> <span class="n">element</span>
 
 <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
-   <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">liste</span><span class="p">),</span> <span class="s2">&quot;queue, liste vide !&quot;</span>
-   <span class="n">_</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">liste</span>
-   <span class="k">return</span> <span class="n">queue</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">liste</span><span class="p">),</span> <span class="s2">&quot;queue, liste vide !&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">liste</span>
+    <span class="k">return</span> <span class="n">queue</span>
 </pre></div>
 </div>
 <ol class="arabic">
-<li><p>Créer et afficher la liste <code class="docutils literal notranslate"><span class="pre">L1</span></code> de l’exercice précédent.</p></li>
+<li><p>Créer et afficher la liste <code class="docutils literal notranslate"><span class="pre">L1</span></code> ci-dessous:</p>
+<a class="reference internal image-reference" href="../../_images/liste_chainee_1.svg"><img alt="../../_images/liste_chainee_1.svg" class="align-center" src="../../_images/liste_chainee_1.svg" width="420px" /></a>
+</li>
 <li><p>On souhaite créer une fonction <code class="docutils literal notranslate"><span class="pre">afficher(liste)</span></code> qui prend en paramètre une liste et affiche la liste sous forme de chaine:</p>
 <ul class="simple">
 <li><p>chaque valeur sera écrite entre crochets</p></li>
