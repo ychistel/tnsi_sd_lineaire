@@ -46,7 +46,7 @@ class Pile:
             sommet = self.sommet
             self.sommet = sommet.suivant
             return sommet.elt
-     
+
     def est_vide(self):
         return self.sommet == None
     

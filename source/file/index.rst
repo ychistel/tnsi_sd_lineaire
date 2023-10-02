@@ -12,4 +12,5 @@ Le cours sur les files met en place l\'**interface** d'une file, c'est à dire l
    content/josephe.rst
    content/file.rst
    content/exercice.rst
+   content/file_2_pile.rst
 
