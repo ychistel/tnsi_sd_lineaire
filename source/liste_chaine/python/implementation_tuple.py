@@ -4,7 +4,7 @@ def creer_liste():
 def est_vide(liste):
     return liste == ()
 
-def inserer(liste, element):
+def inserer(element, liste):
     return (element, liste)
 
 def tete(liste):
